@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d1de06622b4dd4d864b7e9e8af61fe, type: 3}
+  m_Name: 0_DebugSceneData
+  m_EditorClassIdentifier: Assembly-CSharp::SceneData
+  sceneInfos:
+  - sceneType: 0
+    sceneName: TitleScene
+    scene: {fileID: 102900000, guid: a7690d3860dff2a47998e0b24bc81bc6, type: 3}
+  - sceneType: 3
+    sceneName: BasketBallScene
+    scene: {fileID: 102900000, guid: 055699dc82e727545956a28bf0bf0bd7, type: 3}
+  - sceneType: 2
+    sceneName: Reselt
+    scene: {fileID: 102900000, guid: 682e07eb5f6424d4bb60cca10f52d78d, type: 3}
