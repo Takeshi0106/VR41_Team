@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d5207916146ab4e45bf62627d17333b1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.02
+      value: 3.26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d5207916146ab4e45bf62627d17333b1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -160,10 +160,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 8351347520439928319}
   m_InteractionLayers:
     m_Bits: 1
-  m_DistanceCalculationMode: 1
+  m_DistanceCalculationMode: 2
   m_SelectMode: 0
   m_FocusMode: 1
   m_CustomReticle: {fileID: 0}
@@ -229,7 +230,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -326,7 +327,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Action_MoveObject
   m_TargetObject: {fileID: 1430892614420982667}
-  m_MovePos: {x: 0, y: 1.24, z: 0.02}
+  m_Manager: {fileID: 0}
+  m_MovePos: {x: 0, y: 1.24, z: 3.26}
 --- !u!114 &1962044786422590040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,4 +356,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasketBallScript
   maxThrowSpeed: 8
-  yBoost: 1.3
+  throwScale: 0.9
+  yBoost: 1

@@ -136769,6 +136769,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1386082259481429544, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_FarAttachMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386082259481429544, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_EnableFarCasting
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2218496723442559053, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -136814,14 +136822,42 @@ PrefabInstance:
       value: XR Origin Hands (XR Rig) (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2942156198692655549, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_FarAttachMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2942156198692655549, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
       propertyPath: m_EnableFarCasting
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557840064565183711, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_CastRadius
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5359434741994886739, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
       propertyPath: m_FarAttachMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5359434741994886739, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_EnableFarCasting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786981526182599232, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_CastRadius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786981526182599232, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_EnableStabilization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6873022368256633593, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227192243087186103, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_FarAttachMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227192243087186103, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
       propertyPath: m_EnableFarCasting
       value: 0
       objectReference: {fileID: 0}
@@ -143800,26 +143836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasketBall
       objectReference: {fileID: 0}
-    - target: {fileID: 2538066521055203657, guid: 86ca241ce7516534080ccd579d5211f4, type: 3}
-      propertyPath: yBoost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2538066521055203657, guid: 86ca241ce7516534080ccd579d5211f4, type: 3}
-      propertyPath: throwScale
-      value: 0.9
-      objectReference: {fileID: 0}
     - target: {fileID: 4777262401366590687, guid: 86ca241ce7516534080ccd579d5211f4, type: 3}
       propertyPath: m_Manager
       value: 
       objectReference: {fileID: 1667561770}
-    - target: {fileID: 4777262401366590687, guid: 86ca241ce7516534080ccd579d5211f4, type: 3}
-      propertyPath: m_MovePos.z
-      value: 3.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 5171090532222387403, guid: 86ca241ce7516534080ccd579d5211f4, type: 3}
-      propertyPath: m_MovementType
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
