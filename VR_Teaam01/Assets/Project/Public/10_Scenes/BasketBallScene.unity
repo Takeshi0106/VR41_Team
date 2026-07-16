@@ -143840,6 +143840,14 @@ PrefabInstance:
       propertyPath: m_Manager
       value: 
       objectReference: {fileID: 1667561770}
+    - target: {fileID: 8416315386398007612, guid: 86ca241ce7516534080ccd579d5211f4, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416315386398007612, guid: 86ca241ce7516534080ccd579d5211f4, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
