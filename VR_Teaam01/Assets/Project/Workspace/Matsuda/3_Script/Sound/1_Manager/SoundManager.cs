@@ -16,16 +16,42 @@ using UnityEngine;
  * 　　　ただ音楽側でそろえた方が良いと思います。
 */
 
+public enum BGMType
+{
+    Title = 0,
+    Game,
+    Result
+};
+public enum SEType
+{
+    Button = 0,
+    Goal,
+    Cheers,
+};
+
+[System.Serializable]
+public struct BGMSoundData
+{
+    public BGMType BGMType;
+    public AudioClip Clip;
+}
+[System.Serializable]
+public struct SESoundData
+{
+    public SEType SEType;
+    public AudioClip Clip;
+}
+
 public class SoundManager : MonoBehaviour
 {
     [Header("BGM登録")]
-    [SerializeField] private AudioClip[] m_BgmClips;
+    [SerializeField] private BGMSoundData[] m_BgmClips;
     [Header("SE登録")]
-    [SerializeField] private AudioClip[] m_SeClips;
+    [SerializeField] private SESoundData[] m_SeClips;
 
     private static SoundManager m_Instance;
-    private Dictionary<string, AudioClip> m_BgmDict;
-    private Dictionary<string, AudioClip> m_SeDict;
+    private Dictionary<BGMType, AudioClip> m_BgmDict;
+    private Dictionary<SEType, AudioClip> m_SeDict;
     private AudioSource m_BgmSource;
     private AudioSource m_SeSource;
 
@@ -58,32 +84,44 @@ public class SoundManager : MonoBehaviour
         m_SeSource.volume = 0.001f;
 
         // ハッシュ配列に登録
-        m_BgmDict = new Dictionary<string, AudioClip>();
-        foreach (var clip in m_BgmClips)
+        m_BgmDict = new Dictionary<BGMType, AudioClip>();
+        foreach (var soundData in m_BgmClips)
         {
-            if (clip != null)
+            if (soundData.Clip != null)
             {
+                if (m_BgmDict.ContainsKey(soundData.BGMType))
+                {
+                    Debug.LogError($"BGMType が重複しています: {soundData.BGMType}");
+                    continue;
+                }
+
                 // 名前をキーに登録
-                m_BgmDict[clip.name] = clip;
+                m_BgmDict[soundData.BGMType] = soundData.Clip;
 
                 // デコード処理 (一度再生して止める)
-                m_BgmSource.clip = clip;
+                m_BgmSource.clip = soundData.Clip;
                 m_BgmSource.Play();
                 m_BgmSource.Pause(); 
             }
         }
 
         // ハッシュ配列に登録
-        m_SeDict = new Dictionary<string, AudioClip>();
-        foreach (var clip in m_SeClips)
+        m_SeDict = new Dictionary<SEType, AudioClip>();
+        foreach (var soundData in m_SeClips)
         {
-            if (clip != null)
+            if (soundData.Clip != null)
             {
+                if (m_SeDict.ContainsKey(soundData.SEType))
+                {
+                    Debug.LogError($"BGMType が重複しています: {soundData.SEType}");
+                    continue;
+                }
+
                 // 名前をキーに登録
-                m_SeDict[clip.name] = clip;
+                m_SeDict[soundData.SEType] = soundData.Clip;
 
                 // デコード処理 (一度再生して止める)
-                m_SeSource.clip = clip;
+                m_SeSource.clip = soundData.Clip;
                 m_SeSource.Play();
                 m_SeSource.Pause();
             } 
@@ -92,17 +130,21 @@ public class SoundManager : MonoBehaviour
         // 音量を元に戻す
         m_BgmSource.volume = 1.0f;
         m_SeSource.volume = 1.0f;
+
+        // 2Dサウンドに設定
+        m_BgmSource.spatialBlend = 0.0f;
+        m_SeSource.spatialBlend = 0.0f;
     }
 
     // =================================
     // BGMの処理
     // =================================
-    public void PlayBgm(string _name, float _fadeTime, float _maxVolume = 1.0f)
+    public void PlayBgm(BGMType _bgmType, float _fadeTime, float _maxVolume = 1.0f)
     {
         // 名前から検索
-        if (!m_BgmDict.TryGetValue(_name, out var clip))
+        if (!m_BgmDict.TryGetValue(_bgmType, out var clip))
         {
-            Debug.LogWarning($"指定されたBGM {_name} が存在しません。");
+            Debug.LogWarning($"指定されたBGM {_bgmType} が存在しません。");
             return;
         }
 
@@ -125,12 +167,12 @@ public class SoundManager : MonoBehaviour
     //===============================
     // SE再生
     //===============================
-    public void PlaySe(string _name)
+    public void PlaySe(SEType _seType)
     {
         // 名前でSEを検索すしてクリップを取得
-        if (!m_SeDict.TryGetValue(_name, out var clip))
+        if (!m_SeDict.TryGetValue(_seType, out var clip))
         {
-            Debug.LogWarning($"指定されたSE {_name} が存在しません。");
+            Debug.LogWarning($"指定されたSE {_seType} が存在しません。");
             return;
         }
         
@@ -156,7 +198,7 @@ public class SoundManager : MonoBehaviour
         if (m_Instance == null)
         {
             // Prefabをロード
-            var prefab = Resources.Load<GameObject>("Matuda/SoundManager");
+            var prefab = Resources.Load<GameObject>("SoundManager");
             // オブジェクトを生成
             var obj = Object.Instantiate(prefab);
             // アタッチされているコンポーネントを取得
