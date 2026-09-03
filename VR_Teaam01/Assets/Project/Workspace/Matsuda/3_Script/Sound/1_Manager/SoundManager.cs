@@ -101,7 +101,7 @@ public class SoundManager : MonoBehaviour
                 // デコード処理 (一度再生して止める)
                 m_BgmSource.clip = soundData.Clip;
                 m_BgmSource.Play();
-                m_BgmSource.Pause(); 
+                m_BgmSource.Pause();
             }
         }
 
@@ -124,7 +124,7 @@ public class SoundManager : MonoBehaviour
                 m_SeSource.clip = soundData.Clip;
                 m_SeSource.Play();
                 m_SeSource.Pause();
-            } 
+            }
         }
 
         // 音量を元に戻す
