@@ -24,8 +24,8 @@ public enum BGMType
 };
 public enum SEType
 {
-    Button = 0,
-    Goal,
+    Decision = 0,
+    Buzzer,
     Cheers,
 };
 
@@ -102,6 +102,8 @@ public class SoundManager : MonoBehaviour
                 m_BgmSource.clip = soundData.Clip;
                 m_BgmSource.Play();
                 m_BgmSource.Pause();
+
+                Debug.Log($"BGM登録: {soundData.BGMType} - {soundData.Clip.name}");
             }
         }
 
@@ -124,6 +126,8 @@ public class SoundManager : MonoBehaviour
                 m_SeSource.clip = soundData.Clip;
                 m_SeSource.Play();
                 m_SeSource.Pause();
+
+                Debug.Log($"SE登録: {soundData.SEType} - {soundData.Clip.name}");
             }
         }
 
