@@ -14,6 +14,7 @@ public class CreateManager
     {
         // マネージャー作成
         SceneTransitionManager.GetInstance();
+        SoundManager.GetInstance();
 
         // リソースから初期化データを取得
         SceneConfig sceneConfig = Resources.Load<SceneConfig>("SceneConfig");
