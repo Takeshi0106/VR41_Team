@@ -42007,6 +42007,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 1878117280}
   - {fileID: 1688390726}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -105077,7 +105078,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49583d99b497c734aab7c283c5b5f8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameTimer
-  timeLimitSeconds: 10
+  timeLimitSeconds: 8
+  warningTime: 5
   numberSprites:
   - {fileID: -1627380613, guid: ff55830a9e6b3b142991b4d087bf8dd8, type: 3}
   - {fileID: 900263891, guid: ff55830a9e6b3b142991b4d087bf8dd8, type: 3}
@@ -105094,6 +105096,7 @@ MonoBehaviour:
   second10: {fileID: 458124577}
   second1: {fileID: 514198458}
   basketBallManager: {fileID: 1667561770}
+  warningVignette: {fileID: 1878117281}
 --- !u!1 &1688695698 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dcd0a66ec1b01c5438483d8603e8eacc, type: 3}
@@ -119702,6 +119705,70 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7450741763379908841, guid: dcd0a66ec1b01c5438483d8603e8eacc, type: 3}
+--- !u!1 &1878117278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1878117280}
+  - component: {fileID: 1878117279}
+  - component: {fileID: 1878117281}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1878117279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878117278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 5e102a400b6a7744a87d214aa24e0d58, type: 2}
+--- !u!4 &1878117280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878117278}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -578.334, y: -321.2668, z: 3.229861}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 757783468}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1878117281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878117278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64bb8735ac2cbf469dac76e733f4b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeWarningVignette
+  volume: {fileID: 1878117279}
+  maxIntensity: 0.4
 --- !u!1001 &1878377432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137406,6 +137473,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6873022368256633593, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532764411872859410, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
+      propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8227192243087186103, guid: d6878e1999eb4b44a9f5a263af86c185, type: 3}
