@@ -495,7 +495,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -25759,7 +25759,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -78291,6 +78291,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2247259987919148421, guid: f7fa04805b070d343adaa684d91da285, type: 3}
+      propertyPath: m_GoalCracker
+      value: 
+      objectReference: {fileID: 1561513268}
     - target: {fileID: 3142434862468016367, guid: f7fa04805b070d343adaa684d91da285, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -105943,6 +105947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1561513267}
+  - component: {fileID: 1561513268}
   m_Layer: 0
   m_Name: goalcrackerRoot
   m_TagString: Untagged
@@ -105967,6 +105972,20 @@ Transform:
   - {fileID: 54455233}
   m_Father: {fileID: 696667580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1561513268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561513266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f11fddbf166354fa1a619c093733fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GoalCracker
+  leftCracker: {fileID: 367257489}
+  rightCracker: {fileID: 3076045}
 --- !u!1 &1562519067 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dcd0a66ec1b01c5438483d8603e8eacc, type: 3}

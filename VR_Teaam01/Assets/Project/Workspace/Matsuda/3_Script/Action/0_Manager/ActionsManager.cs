@@ -20,6 +20,7 @@ public sealed class ActionsManager : MonoBehaviour
     // アクション実行フラグ
     private bool m_IsAction = false;
 
+    [SerializeField] private GoalCracker m_GoalCracker;
 
     // ==============================================
     // アクション処理呼び出し
@@ -52,6 +53,11 @@ public sealed class ActionsManager : MonoBehaviour
     // ==============================================
     private async UniTaskVoid ActionCall(CancellationToken token)
     {
+        if(m_GoalCracker != null)
+        {
+            m_GoalCracker.PlayGoalEffect();
+        }
+
         // アクション処理を順番に呼び出す
         foreach (var action in m_GoalActions)
         {
