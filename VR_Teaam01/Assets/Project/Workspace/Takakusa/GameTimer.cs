@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class GameTimer : MonoBehaviour
 {
     [SerializeField] private float timeLimitSeconds = 180f;
+    [SerializeField] private float warningTime = 4f;
+    private bool isWarningActive = false;
 
     [Header("数字画像")]
     [SerializeField] private Sprite[] numberSprites; // 0～9
@@ -15,6 +17,8 @@ public class GameTimer : MonoBehaviour
     [SerializeField] private Image second1;
 
     [SerializeField] private BasketBallManager basketBallManager;
+    [SerializeField] private TimeWarning_Vignette warningVignette;
+
 
     private float remainingTime;
 
@@ -42,6 +46,17 @@ public class GameTimer : MonoBehaviour
         }
 
         UpdateTimerImage();
+
+        if (remainingTime <= warningTime)
+        {
+            isWarningActive = true;
+        }
+
+        if (isWarningActive)
+        {
+            warningVignette.UpdateWarning();
+        }
+
     }
 
     void UpdateTimerImage()
