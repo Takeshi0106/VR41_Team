@@ -138,6 +138,7 @@ public class SoundManager : MonoBehaviour
         // 2Dサウンドに設定
         m_BgmSource.spatialBlend = 0.0f;
         m_SeSource.spatialBlend = 0.0f;
+        m_SeSource.clip = null;
     }
 
     // =================================
@@ -181,6 +182,7 @@ public class SoundManager : MonoBehaviour
         }
         
         // SEを複数鳴らすように設定
+        Debug.Log($"SE Type: {_seType}, Clip: {clip}");
         m_SeSource.PlayOneShot(clip);
     }
 
