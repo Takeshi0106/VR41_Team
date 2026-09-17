@@ -105078,8 +105078,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49583d99b497c734aab7c283c5b5f8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameTimer
-  timeLimitSeconds: 8
-  warningTime: 5
+  timeLimitSeconds: 30
+  warningTime: 10
   numberSprites:
   - {fileID: -1627380613, guid: ff55830a9e6b3b142991b4d087bf8dd8, type: 3}
   - {fileID: 900263891, guid: ff55830a9e6b3b142991b4d087bf8dd8, type: 3}
