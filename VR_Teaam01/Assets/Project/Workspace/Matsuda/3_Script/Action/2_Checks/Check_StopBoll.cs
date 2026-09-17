@@ -49,13 +49,15 @@ public class Check_StopBoll : MonoBehaviour
             return;
         }
 
-        // 離したときのイベントを登録
+        // イベントを登録
+        m_GrabInteractable.selectEntered.AddListener(OnGrab);
         m_GrabInteractable.selectExited.AddListener(OnRelease);
     }
 
     private void OnDestroy()
     {
-        // 持たれたときのイベントを削除
+        // イベントを削除
+        m_GrabInteractable.selectEntered.RemoveListener(OnGrab);
         m_GrabInteractable.selectExited.RemoveListener(OnRelease);
     }
 
@@ -70,13 +72,22 @@ public class Check_StopBoll : MonoBehaviour
         if (m_Rb.linearVelocity.sqrMagnitude < 0.01f)
         {
             // アクションマネージャーに実行を指示
+            Debug.Log(" ExecuteAction が呼ばれました");
+
             m_ActionsManager.ExecuteAction();
             m_IsRelese = false;
         }
     }
 
+    private void OnGrab(SelectEnterEventArgs args)
+    {
+        Debug.Log("OnGrab が呼ばれました");
+        m_IsRelese = false;
+    }
+
     private void OnRelease(SelectExitEventArgs args)
     {
+        Debug.Log("OnRelease が呼ばれました");
         m_IsRelese = true;
     }
 }

@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Check_BasketGoal
   m_Tag: Ball
   m_ActionsManager: {fileID: 2247259987919148421}
+  m_BasketBallManager: {fileID: 0}
 --- !u!1001 &6799879417359400263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -359,6 +360,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f9e882a278d44a947bd1eecd2bc40548, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4801842407223529465}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f9e882a278d44a947bd1eecd2bc40548, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3738501272312302671}
   m_SourcePrefab: {fileID: 100100000, guid: f9e882a278d44a947bd1eecd2bc40548, type: 3}
 --- !u!1 &8185291747081124945 stripped
 GameObject:
@@ -379,6 +383,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActionsManager
   m_GoalActions:
   - {fileID: 2008361181286904842}
+  - {fileID: 0}
+  - {fileID: 3738501272312302671}
 --- !u!114 &2008361181286904842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +420,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3944073510091631902, guid: f9e882a278d44a947bd1eecd2bc40548, type: 3}
+--- !u!114 &3738501272312302671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185291747081124945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449925af7269f9e4cb0216eeda7a6c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Action_PlaySE
+  m_SeType: 2
 --- !u!4 &8853003561207113451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f9e882a278d44a947bd1eecd2bc40548, type: 3}

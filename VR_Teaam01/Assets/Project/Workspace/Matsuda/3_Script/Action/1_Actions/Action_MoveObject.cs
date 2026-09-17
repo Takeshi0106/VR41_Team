@@ -10,7 +10,9 @@ public class Action_MoveObject : BaseAction
     // ==============================================
     [SerializeField] private Transform m_TargetObject = null;
     [SerializeField] private BasketBallManager m_Manager;
-    [SerializeField] private Vector3 m_MovePos = Vector3.zero;
+    [SerializeField] private float m_Distance = 2.0f;
+    
+    private Transform m_Camera;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,13 +27,20 @@ public class Action_MoveObject : BaseAction
             Debug.LogError("BasketBallManagerがアタッチされていません。");
             return;
         }
+        m_Camera = Camera.main.transform;
     }
 
 
     public override UniTask Execute(CancellationToken token)
     {
         m_Manager.Challenge();
-        transform.position = m_MovePos;
+
+        Vector3 forward = m_Camera.forward;
+        Vector3 targetPosition = m_Camera.position + forward * m_Distance;
+        m_TargetObject.position = targetPosition;
+        
+        Debug.Log("初期位置に戻しました。");
         return UniTask.CompletedTask;
+
     }
 }
